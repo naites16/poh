@@ -164,7 +164,7 @@ def main():
                             tooltip=f"Cluster {cid}"
                         ).add_to(m_poly)
                     st.subheader("Mapa i-PHAR (Incremental Polígonos)")
-                    st_folium(m_poly, width=700, height=500)
+                    st_folium(m_poly, width="100%", height=500)
                     
                     from cluster_table import build_cluster_table_polygons, show_cluster_table_as_links
                     df_table = build_cluster_table_polygons(poly_list)
@@ -222,7 +222,7 @@ def main():
                                     coords = [(pt[1], pt[0]) for pt in line.coords]
                                     folium.PolyLine(coords, color=color, weight=3, tooltip=f"Cluster {c_id}").add_to(m_exp)
                     st.subheader("Mapa Expansive Network")
-                    st_folium(m_exp, width=700, height=500)
+                    st_folium(m_exp, width="100%", height=500)
                     
                     from cluster_table import build_cluster_table_subgraphs, show_cluster_table_as_links
                     df_table = build_cluster_table_subgraphs(expansions, G)
@@ -236,7 +236,7 @@ def main():
             MarkerCluster().add_to(m_)
             for _, row in gdf_crime.to_crs(epsg=4326).iterrows():
                 folium.Marker(location=[row.geometry.y, row.geometry.x]).add_to(m_)
-            st_folium(m_, width=700, height=500)
+            st_folium(m_, width="100%", height=500)
         
         if st.button("Exportar hotspots como shapefile"):
             try:
