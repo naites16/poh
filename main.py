@@ -132,7 +132,7 @@ def main():
                             tooltip=f"Cluster {cid}"
                         ).add_to(m_poly)
                     st.subheader("Mapa PHAR (Polígonos)")
-                    st_folium(m_poly, width=700, height=500)
+                    st_folium(m_poly, width="100%", height=500)
                     
                     from cluster_table import build_cluster_table_polygons, show_cluster_table_as_links
                     df_table = build_cluster_table_polygons(poly_list)
